@@ -24,3 +24,4 @@ with open (filename + "_"  + time_now + ".txt", "w") as f:
         f.write("\n")
         f.write("next")
         f.write("\n")
+    f.write("end")
