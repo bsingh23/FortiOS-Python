@@ -8,5 +8,7 @@ Script will take the filename (list which conatins IP-Address) from user annd wi
 for e.g.
 
 python3 fortinet_firewall_address.py
+
 Enter the name of file to open: ms_exchange_online
+
 output -> ms_exchange_online_2020-12-28T15\:55\:55.txt
