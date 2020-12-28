@@ -1,0 +1,40 @@
+config firewall address
+edit ms_exchange_online_13.107.6.152/31
+set subnet 13.107.6.152/31
+next
+config firewall address
+edit ms_exchange_online_13.107.18.10/31
+set subnet 13.107.18.10/31
+next
+config firewall address
+edit ms_exchange_online_13.107.128.0/22
+set subnet 13.107.128.0/22
+next
+config firewall address
+edit ms_exchange_online_23.103.160.0/20
+set subnet 23.103.160.0/20
+next
+config firewall address
+edit ms_exchange_online_40.96.0.0/13
+set subnet 40.96.0.0/13
+next
+config firewall address
+edit ms_exchange_online_40.104.0.0/15
+set subnet 40.104.0.0/15
+next
+config firewall address
+edit ms_exchange_online_52.96.0.0/14
+set subnet 52.96.0.0/14
+next
+config firewall address
+edit ms_exchange_online_131.253.33.215/32
+set subnet 131.253.33.215/32
+next
+config firewall address
+edit ms_exchange_online_132.245.0.0/16
+set subnet 132.245.0.0/16
+next
+config firewall address
+edit ms_exchange_online_150.171.32.0/22
+set subnet 150.171.32.0/22
+next
