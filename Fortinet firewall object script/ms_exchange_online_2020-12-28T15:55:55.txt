@@ -38,3 +38,4 @@ config firewall address
 edit ms_exchange_online_150.171.32.0/22
 set subnet 150.171.32.0/22
 next
+end
