@@ -1,6 +1,6 @@
 Fortinet firewall object script
 
-It's a comman requirement these days to allow or deny cloud services based on their IP-Address list provided by vendor. 
+It's a common requirement these days to allow or deny cloud services based on their IP-Address list provided by vendor. 
 But many time published list from Vendors for e.g. Microsoft is quite long and adding the address manually to the firewall is a  tedious task.
 This script will take input of IP-Address from users and will creates the necessary Fortigate commands.
 
