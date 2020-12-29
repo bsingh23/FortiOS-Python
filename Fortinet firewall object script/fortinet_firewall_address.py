@@ -15,9 +15,8 @@ ip_addr_list = ip_addrs.split()
 
 #For loop that will create the configuration file
 with open (filename + "_"  + time_now + ".txt", "w") as f:
+    f.write("config firewall address\n")
     for ip in ip_addr_list:
-        f.write("config firewall address")
-        f.write("\n") 
         f.write(f"edit {filename}_{ip}") 
         f.write("\n")
         f.write(f"set subnet {ip}")
