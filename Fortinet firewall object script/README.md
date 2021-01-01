@@ -12,3 +12,8 @@ python3 fortinet_firewall_address.py
 Enter the name of file to open: ms_exchange_online
 
 output -> ms_exchange_online_2020-12-28T15\:55\:55.txt
+
+Update script fortinet_firewall_address.py
+1. Added error handling to check for correct filename
+2. Added error handling to check for correct IP address or IP-Network's
+3. Remove whitespaces from IP-Address file
