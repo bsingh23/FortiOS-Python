@@ -1,31 +1,50 @@
 #!/usr/bin/python3
 
-import datetime
+import sys
+from argparse import ArgumentParser
+from datetime import datetime
 import ipaddress
 
-time_now = datetime.datetime.now().isoformat(timespec="seconds")
 
-#Give the name of file that contain IP-Address information
-filename = input("Enter the name of file to open: ")
+def open_ip_file(filename):
+    try:
+        with open(filename) as f:
+            return f.read().splitlines()
+    except FileNotFoundError as e:
+        print(e)
+        sys.exit()
 
-#Open File, Read content and create a List
-#Error Handling - To check for provided FileName and valid IP address
-try:
-    with open(filename) as f:
-        ip_addr_list = f.read().splitlines()
 
-        with open (filename + "_"  + time_now + ".txt", "w") as f:
-            f.write("config firewall address \n")
-            for ip in ip_addr_list:
-                ip = ip.strip()
-                try:
-                    #ipaddress module to check if the provided IP address or IP-NETWORK's are valid
-                    if bool(ipaddress.ip_network(ip)):
-                        f.write(f"edit {filename}_{ip} \n")
-                        f.write(f"set subnet {ip} \n")
-                        f.write("next \n")
-                except ValueError:
-                    print(f"{ip} does not appear to be an IPv4 or IPv6 network. Please check in File.")
-            f.write("end")
-except FileNotFoundError:
-    print("File not found or incorrect file name")
+def is_valid_ip(ip):
+    try:
+        return bool(ipaddress.ip_network(ip))
+    except ValueError:
+        print(f"{ip} does not appear to be an IPv4 or IPv6 network. Please check in File.")
+
+
+def write_config(filename, lines):
+    time_now = datetime.today().strftime('%Y-%m-%d')
+    try:
+        with open(filename + "_" + time_now + ".txt", "w+") as f:
+            f.writelines(lines)
+    except IOError as e:
+        print(e)
+        sys.exit()
+
+
+def main(args):
+    write_config(
+        args.filename,
+        [
+            f"edit {args.filename}_{ip.strip()} \n" f" set subnet {ip} \n" "next \n"
+            for ip in open_ip_file(args.filename)
+            if is_valid_ip(ip.strip())
+        ]
+        + ["end\n"],
+    )
+
+
+if __name__ == "__main__":
+    parser = ArgumentParser(description="Render Fortigate Objects")
+    parser.add_argument("filename", type=str, help="File containing primitive data")
+    main(parser.parse_args())
