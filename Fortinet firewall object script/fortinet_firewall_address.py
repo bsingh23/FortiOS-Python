@@ -17,7 +17,7 @@ def open_ip_file(filename):
 
 def is_valid_ip(ip):
     try:
-        return bool(ipaddress.ip_network(ip))
+        return ipaddress.ip_network(ip)
     except ValueError:
         print(f"{ip} does not appear to be an IPv4 or IPv6 network. Please check in File.")
 
@@ -25,7 +25,7 @@ def is_valid_ip(ip):
 def write_config(filename, lines):
     time_now = datetime.today().strftime('%Y-%m-%d')
     try:
-        with open(filename + "_" + time_now + ".txt", "w+") as f:
+        with open(f"{filename}_{time_now}.txt", "w+") as f:
             f.writelines(lines)
     except IOError as e:
         print(e)
