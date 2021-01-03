@@ -46,5 +46,5 @@ def main(args):
 
 if __name__ == "__main__":
     parser = ArgumentParser(description="Render Fortigate Objects")
-    parser.add_argument("filename", type=str, help="File containing primitive data")
+    parser.add_argument("filename", type=str, help="File containing IP addresses/mask in CIDR notation.")
     main(parser.parse_args())
