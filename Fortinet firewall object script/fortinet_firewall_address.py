@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 
-import datetime
+from datetime import datetime
 import ipaddress
 
-time_now = datetime.datetime.now().isoformat(timespec="seconds")
+time_now = datetime.now().strftime('%Y%m%d-%H%M%S')
 
 #Give the name of file that contain IP-Address information
 filename = input("Enter the name of file to open: ")
@@ -28,4 +28,4 @@ try:
                     print(f"{ip} does not appear to be an IPv4 or IPv6 network. Please check in File.")
             f.write("end")
 except FileNotFoundError:
-    print("File not found or incorrect file name")
+    print("File not found or incorrect file name.")
