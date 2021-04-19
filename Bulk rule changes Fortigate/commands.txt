@@ -1,0 +1,4 @@
+set logtraffic enable
+set logtraffic-start enable
+set action accept
+set ips-sensor production_ips
