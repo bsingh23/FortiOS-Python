@@ -12,7 +12,7 @@ def open_file(filename):
         print(e)
         sys.exit()
 
-#Function to create a new file which contains the cli commands required
+#Function to create a new file which contains the CLI commands required
 def execute():
     time_now = datetime.today().strftime('%Y%m%d-%H%M%S')  
     filename = "forti_cmd_output_" + time_now + ".txt"
@@ -27,7 +27,7 @@ def execute():
 if __name__ == "__main__":
     #Get all Policy id
     policy_id = open_file("policy_id.txt")
-    #Get all commands
+    #Get all CLI commands
     config_lines = open_file("commands.txt")
     #Run main func
     execute()
