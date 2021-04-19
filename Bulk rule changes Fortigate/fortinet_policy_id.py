@@ -3,11 +3,6 @@ import sys
 from datetime import datetime
 
 #Function to Open Files, Read content and return a List
-#def open_file(filename):
-#    with open(filename) as f:
-#        lines = f.read().splitlines()
-#        return lines
-
 def open_file(filename):
     try:
         with open (filename) as f:
